@@ -4,5 +4,8 @@
     "browser": true,
     "node": true
   },
-  "extends": "@antfu"
+  "extends": "@antfu",
+  "rules": {
+    "max-len": ["error", { "code": 100} ]
+  }
 }

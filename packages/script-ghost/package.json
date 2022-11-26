@@ -1,7 +1,7 @@
 {
   "name": "@wes/ghost",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "repository": {
     "type": "git",
@@ -11,7 +11,8 @@
   "homepage": "https://github.com/winchesHe/wes-utils-monorepo/tree/main/packages/script-ghost",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsc --noEmit && tsup-node --minify"
+    "build": "tsc --noEmit && tsup-node --minify",
+    "release": "bumpp && npm publish"
   },
   "bin": {
     "ghost": "dist/bin.js"

@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { printSuccessLogs } from 'utils/log'
 import { getScanPath } from '../inquirer/path'
-import type { ScanOptions } from '../type'
+import type { ScanOptions } from '../types'
 import { findGhost } from '../utils'
 
 export const scanGhost = async (pathList: string[], options: ScanOptions) => {

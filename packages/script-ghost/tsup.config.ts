@@ -5,6 +5,6 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   dts: true,
-  entryPoints: ['src/index.ts'],
+  entryPoints: ['src/index.ts', 'src/bin.ts'],
   format: ['esm'],
 })

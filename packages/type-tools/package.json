@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "dev": "tsup --watch",
+    "build": "tsc --noEmit && tsup --minify"
   },
   "devDependencies": {
   }

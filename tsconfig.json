@@ -11,8 +11,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "sourceMap": true,
     "paths": {
       "utils/*": ["utils/*"]
     }
   },
+  "exclude": ["node_modules"]
 }

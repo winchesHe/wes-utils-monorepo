@@ -3,7 +3,9 @@ import c from 'picocolors'
 
 export function printSuccessLogs(text: any, head?: any) {
   console.log()
-  console.log(c.inverse(c.bold(c.green(` ${head ?? '成功：'} `))) + c.green(` ${text}`))
+  typeof text === 'object'
+    ? console.log(c.inverse(c.bold(c.green(` ${head ?? '成功：'} `))), text)
+    : console.log(c.inverse(c.bold(c.green(` ${head ?? '成功：'} `))) + c.green(` ${text}`))
 }
 
 export function printErrorLogs(text: any, head?: any) {

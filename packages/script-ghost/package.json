@@ -1,10 +1,11 @@
 {
-  "name": "@wes/ghost",
-  "version": "1.0.1",
+  "name": "@winches/ghost",
+  "version": "1.0.2",
   "type": "module",
+  "author": "wincheshe",
   "repository": {
     "type": "git",
-    "url": "https://github.com/winchesHe/wes-utils-monorepo",
+    "url": "git+https://github.com/winchesHe/wes-utils-monorepo.git",
     "directory": "packages/script-ghost"
   },
   "homepage": "https://github.com/winchesHe/wes-utils-monorepo/tree/main/packages/script-ghost",
@@ -21,7 +22,17 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "registry": "https://registry.npmjs.org/",
   "devDependencies": {
     "@wes/type-tools": "workspace:^0.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/winchesHe/wes-utils-monorepo/issues"
+  },
+  "license": "ISC",
+  "description": "幽灵依赖扫描工具 scan ghost in project",
+  "keywords": ["ghost", "scan", "幽灵依赖扫描", "遍历文件"]
 }

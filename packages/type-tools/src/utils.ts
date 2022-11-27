@@ -24,12 +24,16 @@ export type AddPrefixKeyToObject<T, Prefix extends string = ''> = {
 /**
    * 联合类型转交叉类型
    */
-export type UnionToIntersection<U> = (U extends any ? (arg: U) => any : never) extends ((arg: infer I) => any) ? I : never
+export type UnionToIntersection<U> = (U extends any
+  ? (arg: U) => any
+  : never) extends ((arg: infer I) => any) ? I : never
 
 /**
    * 获取联合类型最后的值
    */
-export type GetUnionLastValue<T> = UnionToIntersection<(T extends any ? () => T : never)> extends (() => infer R) ? R : never
+export type GetUnionLastValue<T> = UnionToIntersection<(T extends any
+  ? () => T
+  : never)> extends (() => infer R) ? R : never
 
 /**
    * 数组后位加类型

@@ -5,7 +5,7 @@ import { scanGhost } from './command/ghost'
 const program = new Command()
 
 program
-  .command('scanGhost [paths...]')
+  .command('scan [paths...]')
   .description('扫描目录或文件是否存在幽灵依赖')
   .option('-p, --pkg [pkgPath]', '需扫描的 package.json 的位置')
   .action(scanGhost)

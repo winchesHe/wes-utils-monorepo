@@ -17,6 +17,12 @@ export const scanGhost = async (pathList: string[], options: ScanOptions) => {
   // 寻找指定路径下的幽灵依赖
   const ghostList = await findGhost(pathList, pkgPath)
 
-  printSuccessLogs(`${ghostList.length}👻`, '找到幽灵依赖数量：')
-  printSuccessLogs(ghostList, '幽灵依赖列表：')
+  if (ghostList.length) {
+    printSuccessLogs(`${ghostList.length}👻`, '找到幽灵依赖数量：')
+    printSuccessLogs(ghostList, '幽灵依赖列表：')
+  }
+  else {
+    printSuccessLogs(pkgPath, '对比packages.json路径:')
+    printSuccessLogs(pathList, '扫描列表未扫描出幽灵依赖👻')
+  }
 }

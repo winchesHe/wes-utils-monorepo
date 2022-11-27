@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { printSuccessLogs } from 'utils/log'
+import fg from 'fast-glob'
 import { getScanPath } from '../inquirer/path'
 import type { ScanOptions } from '../types'
 import { findGhost } from '../utils'
@@ -10,7 +11,8 @@ export const scanGhost = async (pathList: string[], options: ScanOptions) => {
     pathList = await getScanPath()
 
   // 获取package.json的路径
-  const pkgPath = options.pkg && resolve(process.cwd(), options.pkg)
+  const pkgPath = (options.pkg && resolve(process.cwd(), options.pkg))
+    ?? fg.sync('package.json', { absolute: true, onlyFiles: true, unique: true })[0]
 
   // 寻找指定路径下的幽灵依赖
   const ghostList = await findGhost(pathList, pkgPath)

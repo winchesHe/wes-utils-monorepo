@@ -162,7 +162,7 @@ export const findGhost = async (pathList: string[], pkgPath: string) => {
   pathList = filterPath
 
   // 解析pkgPath路径
-  pkgPath = fg.sync(pkgPath ?? 'packages.json', { absolute: true, onlyFiles: true, unique: true })[0]
+  pkgPath = fg.sync(pkgPath ?? 'package.json', { absolute: true, onlyFiles: true, unique: true })[0]
 
   // 解析package.json
   const pkgContent = existsSync(pkgPath) && JSON.parse(readFileSync(pkgPath, 'utf-8'))

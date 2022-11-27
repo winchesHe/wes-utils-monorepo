@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
-    "release": "bumpp && npm publish"
+    "release": "bumpp && npm publish",
+    "scanGhost": "esno src/bin.ts scanGhost"
   },
   "bin": {
     "ghost": "dist/bin.js"

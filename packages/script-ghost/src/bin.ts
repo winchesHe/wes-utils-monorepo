@@ -4,7 +4,7 @@ import pkg from '../package.json'
 import { scanGhost } from './command/ghost'
 
 const program = new Command()
-program.version(pkg.version)
+program.version(pkg.version, '-v --version', '显示当前版本号')
 
 program
   .command('scan [paths...]')

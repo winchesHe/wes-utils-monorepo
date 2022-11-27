@@ -4,6 +4,7 @@ import { printErrorLogs, printWarnLogs } from 'utils/log'
 import type { GoGoAST } from 'gogocode'
 import $ from 'gogocode'
 import validPkgName from 'validate-npm-package-name'
+import fg from 'fast-glob'
 import { alias, cssExt, excludeList, jsExt, nodeTypes, tsExt, vueExt } from './constant'
 
 export const scanDirFile = (filePath: string,
@@ -153,6 +154,8 @@ export const findGhost = async (pathList: string[], pkgPath: string) => {
   pathList = pathList
     .map(path => resolve(process.cwd(), path))
     .filter(path => existsSync(path))
+  // 解析pkgPath路径
+  pkgPath = fg.sync(pkgPath ?? 'packages.json', { absolute: true, onlyFiles: true, unique: true })[0]
 
   // 解析package.json
   const pkgContent = existsSync(pkgPath) && JSON.parse(readFileSync(pkgPath, 'utf-8'))
@@ -207,7 +210,7 @@ export function isExclude(file: string, excludePattern: ExcludePattern | Exclude
 }
 
 async function getTsconfig() {
-  const tsconfigPath = resolve(process.cwd(), 'tsconfig.json')
+  const tsconfigPath = fg.sync('tsconfig.json', { absolute: true, onlyFiles: true, unique: true })[0]
 
   try {
     if (existsSync(tsconfigPath)) {

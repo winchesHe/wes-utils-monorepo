@@ -3,7 +3,7 @@
 幽灵依赖扫描工具 scan ghost in project
 
 ## Usage
-### Global CLI
+### Global CLI(命令行注册)
 ```sh
 npm i -g @winches/ghost
 pnpm add -g @winches/ghost
@@ -28,7 +28,7 @@ ghost scan src -p otherDir/package.json
 ```
 
 
-### Local
+### Local Use (本地使用)
 ```sh
 npm i @winches/ghost -D
 # or
@@ -38,7 +38,7 @@ pnpm add @winches/ghost -D
 ```
 
 
-#### Usage Pages
+#### Usage Template (本地使用示例)
 ```ts
 import { findGhost } from '@winches/ghost'
 
@@ -53,4 +53,6 @@ const phantomDependency = findGhost(
 ghost --help
 
 ghost scan --help
+
+ghost -v
 ```

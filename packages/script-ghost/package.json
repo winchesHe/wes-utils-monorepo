@@ -1,6 +1,6 @@
 {
   "name": "@winches/ghost",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "type": "module",
   "author": "wincheshe",
   "repository": {
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
-    "release": "bumpp && npm publish",
+    "release": "npm run build && bumpp && npm publish",
     "scanGhost": "esno dist/bin.js scan"
   },
   "bin": {

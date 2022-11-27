@@ -151,9 +151,16 @@ export const isValidSource = (
 
 export const findGhost = async (pathList: string[], pkgPath: string) => {
   // 转换完整路径
-  pathList = pathList
-    .map(path => resolve(process.cwd(), path))
-    .filter(path => existsSync(path))
+  const absolutePath = pathList.map(path => resolve(process.cwd(), path))
+  const filterPath = absolutePath.filter(path => existsSync(path))
+
+  // 若不存在有效路径则报错
+  if (!filterPath.length) {
+    printErrorLogs(absolutePath, '扫描路径不存在：')
+    process.exit(1)
+  }
+  pathList = filterPath
+
   // 解析pkgPath路径
   pkgPath = fg.sync(pkgPath ?? 'packages.json', { absolute: true, onlyFiles: true, unique: true })[0]
 

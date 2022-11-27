@@ -23,4 +23,6 @@ export const scanGhost = async (pathList: string[], options: ScanOptions) => {
     printSuccessLogs(pkgPath, '对比packages.json路径:')
     printSuccessLogs(pathList, '扫描列表未扫描出幽灵依赖👻')
   }
+
+  process.exit(0)
 }

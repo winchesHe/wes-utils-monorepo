@@ -4,24 +4,32 @@
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsc --noEmit && tsup-node --minify"
+    "build": "tsc --noEmit && tsup-node --minify",
+    "publish": "npm run build && npm publish"
   },
   "devDependencies": {},
-  "description": "日常ts(typescript)工具函数 泛型 ts工具",
+  "description": "日常ts(typescript)工具函数 泛型 ts工具 type gymnastics",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/winchesHe/wes-utils-monorepo.git"
+    "url": "git+https://github.com/winchesHe/wes-utils-monorepo.git",
+    "directory": "packages/type-tools"
   },
   "keywords": [
     "ts(typescript)工具",
     "泛型",
     "ts工具",
-    "类型体操"
+    "类型体操",
+    "Generic tools",
+    "Type gymnastics",
+    "typescript"
   ],
   "author": "wincheshe",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/winchesHe/wes-utils-monorepo/issues"
   },

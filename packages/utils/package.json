@@ -1,0 +1,38 @@
+{
+  "name": "@winches/utils",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsc --noEmit && tsup-node --minify",
+    "publish": "npm publish"
+  },
+  "devDependencies": {},
+  "description": "日常ts(typescript)工具函数 如：链式调用函数、缓存装饰器...等等 type gymnastics",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winchesHe/wes-utils-monorepo.git",
+    "directory": "packages/utils"
+  },
+  "keywords": [
+    "ts(typescript)工具函数",
+    "ts工具函数",
+    "Type gymnastics",
+    "typescript",
+    "Decorator Function"
+  ],
+  "author": "wincheshe",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/winchesHe/wes-utils-monorepo/issues"
+  },
+  "homepage": "https://github.com/winchesHe/wes-utils-monorepo/tree/main/packages/utils"
+}

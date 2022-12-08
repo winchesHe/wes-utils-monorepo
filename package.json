@@ -44,5 +44,14 @@
   "dependencies": {
     "fast-glob": "^3.2.12",
     "vue": "^2.0.0"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "vue3-browser-compiler-yx": {
+        "dependencies": {
+          "vue": "^2.0.0||^3.0.0"
+        }
+      }
+    }
   }
 }

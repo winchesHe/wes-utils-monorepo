@@ -1,5 +1,7 @@
 lockfileVersion: 5.4
 
+packageExtensionsChecksum: fed826391e33ce3f8689f188fa3cc2c4
+
 importers:
 
   .:
@@ -40,7 +42,7 @@ importers:
       commander: 9.4.1
       eslint: 8.23.1
       esno: 0.16.3
-      gogocode: 1.0.55_vue@2.7.14
+      gogocode: 1.0.55
       inquirer: 9.1.4
       picocolors: 1.0.0
       pnpm: 7.12.0
@@ -68,6 +70,9 @@ importers:
       validate-npm-package-name: 5.0.0
 
   packages/type-tools:
+    specifiers: {}
+
+  packages/utils:
     specifiers: {}
 
 packages:
@@ -2319,22 +2324,6 @@ packages:
       indent-string: 4.0.0
       recast-yx: 0.18.12
       vue3-browser-compiler-yx: 1.0.4
-    transitivePeerDependencies:
-      - vue
-    dev: false
-
-  /gogocode/1.0.55_vue@2.7.14:
-    resolution: {integrity: sha512-PhT2EnPTaXODiPsZDhRwGe03cb9Eg0nBlvjp3WyQqLAz5lfK7hFQgq/ybTA5BZBThWQnFJGTDjy/Dht7dAtlDw==}
-    dependencies:
-      '@babel/parser': 7.19.1
-      glob: 7.2.3
-      hyntax-yx: 1.0.9
-      indent-string: 4.0.0
-      recast-yx: 0.18.12
-      vue3-browser-compiler-yx: 1.0.4_vue@2.7.14
-    transitivePeerDependencies:
-      - vue
-    dev: true
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
@@ -3962,30 +3951,6 @@ packages:
 
   /vue3-browser-compiler-yx/1.0.4:
     resolution: {integrity: sha512-F42+9OGvZT83zOPCp0jycA76ZEozv7DTaYkVVGdpf+Syjh/S/8xj/GRnJ+P8/AkfpHoCOR2WAZupDJS6/qS4OQ==}
-    peerDependencies:
-      vue: ^2.0.0||^3.0.0
-    dependencies:
-      '@babel/parser': 7.19.1
-      '@babel/types': 7.19.0
-      '@vue/compiler-core': 3.0.11
-      '@vue/compiler-dom': 3.0.11
-      '@vue/compiler-ssr': 3.0.11
-      '@vue/shared': 3.0.11
-      estree-walker: 2.0.2
-      hash-sum: 2.0.0
-      lru-cache: 5.1.1
-      magic-string: 0.25.7
-      merge-source-map: 1.1.0
-      postcss: 8.1.10
-      postcss-modules: 4.0.0_postcss@8.1.10
-      postcss-selector-parser: 6.0.4
-      source-map: 0.6.1
-    dev: false
-
-  /vue3-browser-compiler-yx/1.0.4_vue@2.7.14:
-    resolution: {integrity: sha512-F42+9OGvZT83zOPCp0jycA76ZEozv7DTaYkVVGdpf+Syjh/S/8xj/GRnJ+P8/AkfpHoCOR2WAZupDJS6/qS4OQ==}
-    peerDependencies:
-      vue: ^2.0.0||^3.0.0
     dependencies:
       '@babel/parser': 7.19.1
       '@babel/types': 7.19.0
@@ -4003,7 +3968,6 @@ packages:
       postcss-selector-parser: 6.0.4
       source-map: 0.6.1
       vue: 2.7.14
-    dev: true
 
   /wcwidth/1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}

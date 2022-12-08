@@ -1,6 +1,6 @@
 {
   "name": "@winches/ghost",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "type": "module",
   "author": "wincheshe",
   "repository": {
@@ -34,6 +34,15 @@
     "picocolors": "^1.0.0",
     "validate-npm-package-name": "^5.0.0",
     "fast-glob": "^3.2.12"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "vue3-browser-compiler-yx": {
+        "dependencies": {
+          "vue": "^2.0.0||^3.0.0"
+        }
+      }
+    }
   },
   "bugs": {
     "url": "https://github.com/winchesHe/wes-utils-monorepo/issues"

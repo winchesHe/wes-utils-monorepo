@@ -1,2 +1,2 @@
 export * from './types'
-export { findGhost } from './utils'
+export { findGhost, scanDirFile } from './utils'

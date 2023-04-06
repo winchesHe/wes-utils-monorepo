@@ -59,6 +59,7 @@ importers:
       fast-glob: ^3.2.12
       gogocode: ^1.0.55
       inquirer: ^9.1.4
+      pathe: ^1.1.0
       picocolors: ^1.0.0
       validate-npm-package-name: ^5.0.0
     dependencies:
@@ -66,6 +67,7 @@ importers:
       fast-glob: 3.2.12
       gogocode: 1.0.55
       inquirer: 9.1.4
+      pathe: 1.1.0
       picocolors: 1.0.0
       validate-npm-package-name: 5.0.0
 
@@ -3088,6 +3090,10 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
     dev: true
+
+  /pathe/1.1.0:
+    resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}
+    dev: false
 
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}

@@ -1,5 +1,5 @@
 import fs, { existsSync, readFileSync } from 'fs'
-import { join, parse, resolve } from 'path'
+import { join, parse, resolve } from 'pathe'
 import { printErrorLogs, printWarnLogs } from 'utils/log'
 import type { GoGoAST } from 'gogocode'
 import $ from 'gogocode'

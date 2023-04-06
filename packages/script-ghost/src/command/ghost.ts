@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+import { resolve } from 'pathe'
 import { printSuccessLogs } from 'utils/log'
 import fg from 'fast-glob'
 import { getScanPath } from '../inquirer/path'

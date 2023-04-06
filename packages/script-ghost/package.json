@@ -1,6 +1,6 @@
 {
   "name": "@winches/ghost",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "type": "module",
   "author": "wincheshe",
   "repository": {
@@ -13,7 +13,8 @@
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
     "release": "npm run build && bumpp && npm publish",
-    "scanGhost": "esno dist/bin.js scan"
+    "scanGhost": "esno dist/bin.js scan",
+    "prepublish": "npm build"
   },
   "bin": {
     "ghost": "dist/bin.js"
@@ -24,16 +25,17 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
-  "registry": "https://registry.npmjs.org/",
   "dependencies": {
     "commander": "^9.4.1",
+    "fast-glob": "^3.2.12",
     "gogocode": "^1.0.55",
     "inquirer": "^9.1.4",
+    "pathe": "^1.1.0",
     "picocolors": "^1.0.0",
-    "validate-npm-package-name": "^5.0.0",
-    "fast-glob": "^3.2.12"
+    "validate-npm-package-name": "^5.0.0"
   },
   "pnpm": {
     "packageExtensions": {

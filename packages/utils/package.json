@@ -10,9 +10,14 @@
     "prepublishOnly": "nr build"
   },
   "description": "日常ts(typescript)工具函数 如：链式调用函数、缓存装饰器...等等 type gymnastics",
-  "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist"
   ],

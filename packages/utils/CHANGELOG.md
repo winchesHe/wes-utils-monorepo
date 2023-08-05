@@ -1,3 +1,7 @@
+## [0.0.5](https://github.com/winchesHe/wes-utils-monorepo/compare/v0.0.4...v0.0.5) (2023-08-05)
+
+
+
 ## [0.0.4](https://github.com/winchesHe/wes-utils-monorepo/compare/v1.1.4...v0.0.4) (2023-08-05)
 
 

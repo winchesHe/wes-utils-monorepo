@@ -6,7 +6,8 @@
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
     "changlog": "npx conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
-    "release": "bumpp --execute=\"nr changlog\" --all"
+    "release": "bumpp --execute=\"nr changlog\" --all",
+    "prepublish": "nr build"
   },
   "description": "日常ts(typescript)工具函数 如：链式调用函数、缓存装饰器...等等 type gymnastics",
   "main": "dist/index.cjs",

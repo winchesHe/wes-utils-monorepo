@@ -221,7 +221,7 @@ async function getTsconfig() {
 
   try {
     if (existsSync(tsconfigPath)) {
-      const tsconfigText = await import(tsconfigPath)
+      const tsconfigText = JSON.parse(readFileSync(tsconfigPath, 'utf-8'))
       const importAlias = tsconfigText?.compilerOptions?.paths
       return Object.keys(importAlias)?.map(v => v.replace(/[\/*]*$/g, ''))
     }

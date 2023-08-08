@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node",
-    "changlog": "npx conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
-    "release": "bumpp --execute=\"nr changlog\" --all",
+    "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s --commit-path .",
+    "release": "bumpp --execute=\"nr changelog\" --all",
     "prepublishOnly": "nr build"
   },
   "description": "日常ts(typescript)工具函数 如：链式调用函数、缓存装饰器...等等 type gymnastics",

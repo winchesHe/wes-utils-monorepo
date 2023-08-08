@@ -11,10 +11,10 @@
   "homepage": "https://github.com/winchesHe/wes-utils-monorepo/tree/main/packages/script-ghost",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsc --noEmit && tsup-node --minify",
+    "build": "tsc --noEmit && tsup-node",
     "release": "bumpp && npm publish",
     "scanGhost": "esno src/bin.ts scan",
-    "prepublishOnly": "npm build"
+    "prepublishOnly": "nr build"
   },
   "bin": {
     "ghost": "dist/bin.js"

@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
-    "release": "npm run build && bumpp && npm publish",
+    "release": "bumpp && npm publish",
     "scanGhost": "esno src/bin.ts scan",
     "prepublishOnly": "npm build"
   },

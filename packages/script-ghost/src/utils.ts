@@ -1,11 +1,12 @@
 import fs, { existsSync, readFileSync } from 'fs'
-import { join, parse, resolve } from 'pathe'
+import { basename, join, parse, resolve } from 'pathe'
 import { printErrorLogs, printWarnLogs } from 'utils/log'
 import type { GoGoAST } from 'gogocode'
 import $ from 'gogocode'
 import validPkgName from 'validate-npm-package-name'
 import fg from 'fast-glob'
 import { alias, cssExt, excludeList, jsExt, nodeTypes, tsExt, vueExt } from './constant'
+import { createSingleProgressBar } from './bar'
 
 export const scanDirFile = (filePath: string,
   extList: string[] = [],
@@ -178,16 +179,24 @@ export const findGhost = async (pathList: string[], pkgPath: string) => {
   })
   fileList = [...new Set(fileList)]
 
+  const bar = createSingleProgressBar()
+
   // 读取解析路径文件里的导入资源
   const tsconfigContent = await getTsconfig()
   let packageSource: string[] = []
+
+  bar.start(fileList.length, 0, { head: '正在扫描依赖' })
+
   fileList.forEach((filePath) => {
+    bar.increment(1, { name: `当前正在解析文件: ${basename(filePath)}` })
     const importSource = getImportSource(filePath)
     const validSource = importSource.filter(source => isValidSource(filePath, source, tsconfigContent))
     packageSource.push(...validSource.filter(v => getPkgNameBySourcePath(v)))
   })
   // 获取去重后的导入资源列表
   packageSource = [...new Set(packageSource)]
+
+  bar.stop()
 
   // 获取nodejs类型
   let typesNode = (existsSync(resolve(process.cwd(), 'node_modules/@types/node'))
@@ -227,7 +236,8 @@ async function getTsconfig() {
     }
   }
   catch (error) {
-    console.warn(error)
+    console.warn('Error：解析 tsconfig.json 失败，请注意 tsconfig.json 的格式是否正确', error)
+    console.warn()
   }
 }
 

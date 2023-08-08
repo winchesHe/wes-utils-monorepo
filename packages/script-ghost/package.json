@@ -13,7 +13,7 @@
     "dev": "tsup --watch",
     "build": "tsc --noEmit && tsup-node --minify",
     "release": "npm run build && bumpp && npm publish",
-    "scanGhost": "esno dist/bin.js scan",
+    "scanGhost": "esno src/bin.ts scan",
     "prepublish": "npm build"
   },
   "bin": {
@@ -29,6 +29,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "cli-progress": "^3.12.0",
     "commander": "^9.4.1",
     "fast-glob": "^3.2.12",
     "gogocode": "^1.0.55",
@@ -36,6 +37,9 @@
     "pathe": "^1.1.0",
     "picocolors": "^1.0.0",
     "validate-npm-package-name": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.0"
   },
   "pnpm": {
     "packageExtensions": {

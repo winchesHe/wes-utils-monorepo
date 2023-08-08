@@ -14,7 +14,7 @@
     "build": "tsc --noEmit && tsup-node --minify",
     "release": "npm run build && bumpp && npm publish",
     "scanGhost": "esno src/bin.ts scan",
-    "prepublish": "npm build"
+    "prepublishOnly": "npm build"
   },
   "bin": {
     "ghost": "dist/bin.js"

@@ -185,6 +185,8 @@ export const findGhost = async (pathList: string[], pkgPath: string) => {
   const tsconfigContent = await getTsconfig()
   let packageSource: string[] = []
 
+  // eslint-disable-next-line no-console
+  console.log()
   bar.start(fileList.length, 0, { head: '正在扫描依赖' })
 
   fileList.forEach((filePath) => {

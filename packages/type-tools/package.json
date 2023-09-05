@@ -1,18 +1,16 @@
 {
   "name": "@winches/type-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsc --noEmit && tsup-node --minify"
+    "build": "tsc --noEmit && tsup-node",
+    "prepublishOnly": "nr build"
   },
   "devDependencies": {},
   "description": "日常ts(typescript)工具函数 泛型 ts工具 type gymnastics",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/winchesHe/wes-utils-monorepo.git",
@@ -30,8 +28,13 @@
   "author": "wincheshe",
   "license": "ISC",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "directory": "dist"
   },
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/winchesHe/wes-utils-monorepo/issues"
   },

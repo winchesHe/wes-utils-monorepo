@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 /**
  * 获取函数第二个参数类型
  */
@@ -120,3 +122,11 @@ export type ParseQueryStr<T extends string, O = {}> = T extends `${infer K}=${in
       : O
   : never
 
+/**
+ * @example 将类型 'SfTable' ---> 'sf-table'
+ */
+export type ToKebab<T extends string, O extends string = Uncapitalize<T>> = O extends `${infer First}${infer Rest}`
+  ? First extends Capitalize<First>
+    ? `-${Lowercase<First>}${ToKebab<Rest>}`
+    : `${First}${ToKebab<Rest, Rest>}`
+  : T

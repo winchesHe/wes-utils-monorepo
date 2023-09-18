@@ -78,3 +78,21 @@ export function stringifyObj(obj: object) {
 
   return `{${all}}`
 }
+
+export function getMatchImport(str: string) {
+  const importRegexAll = /import {?\s*([\w\W]+?)\s*}? from ['"](.+)['"]/g
+
+  const matchAll = str.match(importRegexAll) ?? []
+  const result: string[][] = []
+
+  for (const item of matchAll)
+    result.push(matchImport(item))
+
+  return result.length ? result : []
+
+  function matchImport(itemImport: string) {
+    const importRegex = /import {?\s*([\w\W]+?)\s*}? from ['"](.+)['"]/
+    const match = itemImport.match(importRegex) ?? []
+    return [match[1] ?? '', match[2] ?? '']
+  }
+}

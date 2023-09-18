@@ -65,3 +65,16 @@ export const scanDirFile = (filePath: string,
 
   return fileArr
 }
+
+export function stringifyObj(obj: object) {
+  let all = ''
+  for (const [key, value] of Object.entries(obj)) {
+    let str = value instanceof Function ? value.name : value
+    if (typeof value === 'object')
+      str = stringifyObj(value)
+
+    all += `${key}: ${str},`
+  }
+
+  return `{${all}}`
+}

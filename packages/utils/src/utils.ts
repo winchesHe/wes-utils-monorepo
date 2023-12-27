@@ -2,7 +2,7 @@
 import fs, { existsSync } from 'fs'
 import { join, parse } from 'path'
 import { excludeList } from './constants'
-import type { ExcludePattern } from './types'
+import type { ExcludePattern, ToKebab } from './types'
 
 export const flat = (arr: any[], num = 1) => {
   let i = 0
@@ -95,4 +95,15 @@ export function getMatchImport(str: string) {
     const match = itemImport.match(importRegex) ?? []
     return [match[1] ?? '', match[2] ?? '']
   }
+}
+
+/**
+ * @param str camelString
+ * @returns IfaceComponent --> iface-component
+ */
+export function toKebab<T extends string>(str: T): ToKebab<T> {
+  if (!str)
+    return '' as ToKebab<T>
+
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase() as ToKebab<T>
 }

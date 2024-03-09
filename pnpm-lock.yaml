@@ -109,13 +109,17 @@ importers:
         specifier: ^3.11.0
         version: 3.11.0
 
-  packages/type-tools: {}
+  packages/type-tools:
+    publishDirectory: dist
 
   packages/utils:
     dependencies:
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
+      diff-match-patch-es:
+        specifier: ^0.1.0
+        version: 0.1.0
 
 packages:
 
@@ -1019,6 +1023,10 @@ packages:
       has-property-descriptors: 1.0.0
       object-keys: 1.1.1
     dev: true
+
+  /diff-match-patch-es@0.1.0:
+    resolution: {integrity: sha512-y+HzthUzXXodKmawgRo9gQivKhY/NGzkZURFMQWSWsdRpOpkjjmX9DfDWB/T4a3blVqKoXL6f8Spq1+dLd+csQ==}
+    dev: false
 
   /dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}

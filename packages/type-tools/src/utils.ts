@@ -125,8 +125,25 @@ export type ParseQueryStr<T extends string, O = {}> = T extends `${infer K}=${in
 /**
  * @example 将类型 'SfTable' ---> 'sf-table'
  */
-export type ToKebab<T extends string, O extends string = Uncapitalize<T>> = O extends `${infer First}${infer Rest}`
-  ? First extends Capitalize<First>
-    ? `-${Lowercase<First>}${ToKebab<Rest>}`
-    : `${First}${ToKebab<Rest, Rest>}`
+export type KebabCase<T extends string, O extends string = Uncapitalize<T>> = O extends `${infer First}${infer Rest}`
+  ? `${First extends Capitalize<First> ? `-${Lowercase<First>}` : First}${KebabCase<Rest, Rest>}`
   : T
+
+/**
+ * @example 'test-test' => 'TestTest'
+ */
+export type PascalCase<T extends string> = T extends `${infer F}-${infer R}`
+  ? `${Capitalize<F>}${PascalCase<R>}`
+  : Capitalize<T>
+
+/**
+* @example 'testTest' => 'test_test'
+*/
+export type SnakeCase<T extends string, UC = Uncapitalize<T>> = UC extends `${infer F}${infer R}`
+  ? `${F extends Uppercase<F> ? `_${Lowercase<F>}` : Lowercase<F>}${SnakeCase<R, R>}`
+  : UC
+
+/**
+* @example 'test-test' => 'testTest'
+*/
+export type CamelCase<T extends string> = Uncapitalize<PascalCase<T>>

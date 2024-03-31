@@ -147,3 +147,12 @@ export type SnakeCase<T extends string, UC = Uncapitalize<T>> = UC extends `${in
 * @example 'test-test' => 'testTest'
 */
 export type CamelCase<T extends string> = Uncapitalize<PascalCase<T>>
+
+/**
+ * @example RequiredKey<{a?: 1, b?: 2}, a> => {a: 1, b?: 2}
+ */
+export type RequiredKey<T, Key extends keyof T> = {
+  [K in keyof T as K extends Key ? never : K]?: T[K];
+} & {
+  [K in Key]-?: T[K];
+}

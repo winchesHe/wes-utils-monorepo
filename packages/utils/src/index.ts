@@ -1,6 +1,7 @@
 export * from './utils'
 export * from './types'
 export * from './observeMove'
+export * from './match'
 export * from './log'
 export * from './dom'
 export * from './diff-match'

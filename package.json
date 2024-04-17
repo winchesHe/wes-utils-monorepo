@@ -28,6 +28,7 @@
     "@types/validate-npm-package-name": "^4.0.0",
     "bumpp": "^8.2.1",
     "commander": "^9.4.1",
+    "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.23.1",
     "esno": "^0.16.3",
     "gogocode": "^1.0.55",

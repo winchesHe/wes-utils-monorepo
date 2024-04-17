@@ -1,6 +1,6 @@
 export * from './utils'
 export * from './types'
-export * from './observeMove'
+export * from './observe'
 export * from './match'
 export * from './log'
 export * from './dom'

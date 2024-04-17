@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import fs, { existsSync } from 'fs'
 import { join, parse } from 'path'
+import type { CamelCase, KebabCase } from '@winches/type-tools'
 import { excludeList } from './constants'
 import type { ExcludePattern, ToKebab } from './types'
 
@@ -101,9 +102,39 @@ export function getMatchImport(str: string) {
  * @param str camelString
  * @returns IfaceComponent --> iface-component
  */
-export function toKebab<T extends string>(str: T): ToKebab<T> {
+export function kebabCase<T extends string>(str: T): ToKebab<T> {
   if (!str)
     return '' as ToKebab<T>
 
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase() as ToKebab<T>
+}
+
+export function camelCase<T extends string>(str: T): CamelCase<T> {
+  if (!str)
+    return '' as CamelCase<T>
+
+  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()) as CamelCase<T>
+}
+
+/**
+ * @example generateSlots(['slot1', 'slot2', 'slot3'])
+ *
+ * @returns
+ * `{ slot1: { 'data-slot': 'slot1' }, slot2: { 'data-slot': 'slot2' }, slot3: { 'data-slot': 'slot3' } }`
+ */
+export const generateSlots = <T extends string[]>(slots: [...T]) => {
+  const camelCaseSlots = slots.map(slot => camelCase(slot) as CamelCase<T[number]>)
+  return camelCaseSlots.reduce(
+    (acc, slot) => {
+      acc[slot] = {
+        'data-slot': `${kebabCase(slot)}`,
+      } as any
+      return acc
+    },
+    {} as {
+      [key in CamelCase<T[number]>]: {
+        'data-slot': KebabCase<key>
+      };
+    },
+  )
 }

@@ -174,3 +174,18 @@ export type RequiredKey<T, Key extends keyof T> = {
 } & {
   [K in Key]-?: T[K]
 }
+
+/**
+ * @example Increase<5> => 0 | 1 | 2 | 3 | 4
+ * Increase<5, true> => 1 | 2 | 3 | 4 | 5
+ */
+type Increase<N extends number, Equal = false, Acc extends number[] = []> = Acc['length'] extends N
+  ? Equal extends true
+    ? Acc[number] | N
+    : Acc[number]
+  : Increase<N, Equal, Acc['length'] extends 0 ? Equal extends true ? [1] : [0] : [...Acc, Acc['length']] >
+
+/**
+ * @example IntRange<5, 10> => 5 | 6 | 7 | 8 | 9 | 10
+ */
+export type IntRange<F extends number, T extends number> = Exclude<Increase<T, true>, Increase<F>>

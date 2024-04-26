@@ -25,6 +25,8 @@ export type AddPrefixKeyToObject<T, Prefix extends string = ''> = {
 
 /**
    * 联合类型转交叉类型
+   *  UnionToIntersection<{ foo: string } | { bar: string }> =
+   *  { foo: string } & { bar: string }
    */
 export type UnionToIntersection<U> = (U extends any
   ? (arg: U) => any
@@ -32,6 +34,7 @@ export type UnionToIntersection<U> = (U extends any
 
 /**
    * 获取联合类型最后的值
+   * 对于交叉类型的函数推断，可以通过infer来获取交叉类型的最后一个类型
    */
 export type GetUnionLastValue<T> = UnionToIntersection<(T extends any
   ? () => T

@@ -87,10 +87,19 @@ export type UnionToArray<T, U extends NonEmptyArray<T> = NonEmptyArray<T>> = Mus
 
 /**
    * 联合类型转元组
+   * Union2Tuple<'1' | '2'> --> ['1' | '2', '1' | '2']
    */
-export type Union2Tuple<T, ArrayType = T, A extends any[] = [], L = GetUnionLength<T>> = A['length'] extends L
+export type Union2Tuple<T, A extends any[] = [], L = GetUnionLength<T>> = A['length'] extends L
   ? A
-  : Union2Tuple<T, ArrayType, Push<A, ArrayType>>
+  : Union2Tuple<T, Push<A, T>>
+
+/**
+ * 联合类型转顺序元组
+ * UnionToOrderTuple<'1' | '2'> --> ['1', '2']
+ */
+export type UnionToOrderTuple<T, Last = GetUnionLastValue<T>> = [T] extends [never]
+  ? []
+  : [...UnionToOrderTuple<Exclude<T, Last>>, Last]
 
 /**
    * 合并两个对象key value，若key重复，则保留F类型的value

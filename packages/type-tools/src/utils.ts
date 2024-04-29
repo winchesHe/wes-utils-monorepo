@@ -110,7 +110,14 @@ export type Merge<F, S> = {
 }
 
 /**
+ * 支持保留 optional 的类型
+ * @example BetterMerge<{ a: 1, b?: 2 }, { a: 2, c: 3 }> --> { a: 2, b?: 2, c: 3 }
+ */
+export type BetterMerge<F, S, P = Omit<F, keyof S> & S> = { [k in keyof P]: P[k]; }
+
+/**
  * 联合类型的key value合并到一个对象中
+ * @example UnionObjectKeysToObject<{a: 1} | {b: 2}> --> { a: 1, b: 2 }
  */
 export type UnionObjectKeysToObject<
   T,

@@ -203,5 +203,4 @@ export type ArrayWithLength<T extends number, U extends any[] = []> = U['length'
 /**
  * @example GreaterThan<5, 3> => true
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export type GreaterThan<T extends number, U extends number> = ArrayWithLength<U> extends [...ArrayWithLength<T>, ...infer _] ? false : true
+export type GreaterThan<T extends number, U extends number> = ArrayWithLength<U> extends [...ArrayWithLength<T>, ...any] ? false : true

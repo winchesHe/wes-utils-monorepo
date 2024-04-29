@@ -33,6 +33,7 @@ export type UnionToIntersection<U> = (U extends any ? (arg: U) => any : never) e
 /**
  * 获取联合类型最后的值
  * 对于交叉类型的函数推断，可以通过infer来获取交叉类型的最后一个类型
+ * @example GetUnionLastValue<0 | 1 | 2> --> 2
  */
 export type GetUnionLastValue<T> = UnionToIntersection<T extends any ? () => T : never> extends () => infer R
   ? R
@@ -129,7 +130,7 @@ export type UnionObjectKeysToObject<
 
 /**
  * 联合类型的key 联合类型的value合并到一个对象中
- * UnionKeyValueToObject<0 | 1 | 2, '00' | '11' | '22'> --> { 0: '00', 1: '11', 2: '22' }
+ * @example UnionKeyValueToObject<0 | 1 | 2, '00' | '11' | '22'> --> { 0: '00', 1: '11', 2: '22' }
  */
 export type UnionKeyValueToObject<V, D, VL = GetUnionLastValue<V>, DL = GetUnionLastValue<D>> = [V] extends [never]
   ? {}

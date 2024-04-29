@@ -197,3 +197,11 @@ type Increase<N extends number, Equal = false, Acc extends number[] = []> = Acc[
  * @example IntRange<5, 10> => 5 | 6 | 7 | 8 | 9 | 10
  */
 export type IntRange<F extends number, T extends number> = Exclude<Increase<T, true>, Increase<F>>
+
+export type ArrayWithLength<T extends number, U extends any[] = []> = U['length'] extends T ? U : ArrayWithLength<T, [true, ...U]>
+
+/**
+ * @example GreaterThan<5, 3> => true
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export type GreaterThan<T extends number, U extends number> = ArrayWithLength<U> extends [...ArrayWithLength<T>, ...infer _] ? false : true

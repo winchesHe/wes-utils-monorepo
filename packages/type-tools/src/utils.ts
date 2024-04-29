@@ -207,3 +207,27 @@ export type ArrayWithLength<T extends number, U extends any[] = []> = U['length'
  * @example GreaterThan<5, 3> => true
  */
 export type GreaterThan<T extends number, U extends number> = ArrayWithLength<U> extends [...ArrayWithLength<T>, ...any] ? false : true
+
+/**
+ * 判断是否是基础类型的常量
+ * @example JudgeBasicConst<string> => false
+ * @example JudgeBasicConst<'test'> => true
+ */
+export type JudgeBasicConst<T> = string extends T
+  ? false
+  : number extends T
+    ? false
+    : boolean extends T
+      ? false
+      : null extends T
+        ? false
+        : undefined extends T
+          ? false
+          : true
+
+/**
+ * 判断是否是对象类型的常量
+ * @example JudgeObjectConst<{a: 1}> => true
+ * @example JudgeObjectConst<{a: number}> => false
+ */
+export type JudgeObjectConst<T> = T extends object ? JudgeBasicConst<Exclude<T[keyof T], undefined>> : JudgeBasicConst<T>

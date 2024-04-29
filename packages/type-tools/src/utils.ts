@@ -132,9 +132,12 @@ export type UnionObjectKeysToObject<
  * 联合类型的key 联合类型的value合并到一个对象中
  * @example UnionKeyValueToObject<0 | 1 | 2, '00' | '11' | '22'> --> { 0: '00', 1: '11', 2: '22' }
  */
-export type UnionKeyValueToObject<V, D, VL = GetUnionLastValue<V>, DL = GetUnionLastValue<D>> = [V] extends [never]
+export type UnionKeyValueToObject<V, D, VL = GetUnionLastValue<V>, DL = GetUnionLastValue<D>, ED = Exclude<D, DL>> = [V] extends [never]
   ? {}
-  : Merge<Record<VL extends keyof any ? VL : never, DL>, UnionKeyValueToObject<Exclude<V, VL>, Exclude<D, DL>>>
+  : Merge<
+      Record<VL extends keyof any ? VL : never, DL>,
+      UnionKeyValueToObject<Exclude<V, VL>, ED extends [never] ? D : ED>
+    >
 
 /**
  * 路由参数key value获取

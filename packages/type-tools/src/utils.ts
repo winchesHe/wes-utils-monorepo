@@ -231,3 +231,15 @@ export type JudgeBasicConst<T> = string extends T
  * @example JudgeObjectConst<{a: number}> => false
  */
 export type JudgeObjectConst<T> = T extends object ? JudgeBasicConst<Exclude<T[keyof T], undefined>> : JudgeBasicConst<T>
+
+/**
+ * 根据 index 获取联合类型值
+ * @example GetUnionIndexValue<1 | 2 |3, 1> => 2
+ */
+export type GetUnionIndexValue<T, I extends number, AT = UnionToOrderTuple<T>> = I extends keyof AT ? AT[I] : never
+
+/**
+ * 获取联合类型第一个值
+ * @example GetFirstUnionValue<1 | 2 |3> => 1
+ */
+export type GetFirstUnionValue<T> = GetUnionIndexValue<T, 0>

@@ -117,6 +117,21 @@ export type Merge<F, S> = {
 export type BetterMerge<F, S, P = Omit<F, keyof S> & S> = { [k in keyof P]: P[k]; }
 
 /**
+ * 合并两个对象key value，非共同 key 保留 optional
+ * @example WidelyMerge<{ a: 1, b?: 2 }, { a: 2, c: 3 }> --> { a: 2, b?: 2, c?: 3 }
+ */
+export type WidelyMerge<F, S> = {
+  // 使用 S 中的类型覆盖 F 中的类型，以处理共同的键
+  [Key in keyof F & keyof S]: S[Key];
+} & {
+  // 仅出现在 F 中的键，标记为可选
+  [Key in Exclude<keyof F, keyof S>]?: F[Key];
+} & {
+  // 仅出现在 S 中的键，标记为可选
+  [Key in Exclude<keyof S, keyof F>]?: S[Key];
+}
+
+/**
  * 联合类型的key value合并到一个对象中
  * @example UnionObjectKeysToObject<{a: 1} | {b: 2}> --> { a: 1, b: 2 }
  */
